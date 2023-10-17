@@ -42,14 +42,12 @@ typedef struct instruction_s
 extern stack_t *head;
 typedef void (*op_func)(stack_t **, unsigned int);
 
-/*file operations definations*/
-void open_file(char *file_name);
-int parse_line(char *buffer, int line_number, int format);
-void read_file(FILE *);
-int len_chars(FILE *);
-void find_func(char *, char *, int, int);
+/*String operation definations*/
+void print_character(stack_t **, unsigned int);
+void print_string(stack_t **, unsigned int);
+void rotl(stack_t **, unsigned int);
 
-/*Defination of stack operations*/
+/*Stack operations definations*/
 stack_t *create_node(int n);
 void free_nodes(void);
 void print_stack(stack_t **, unsigned int);
@@ -63,22 +61,24 @@ void pop_top(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void swap_nodes(stack_t **, unsigned int);
 
-/*Defination of math operations with nodes*/
+/*Error handling definations*/
+void error(int error_code, ...);
+void more_error(int error_code, ...);
+void string_error(int error_code, ...);
+void rotr(stack_t **, unsigned int);
+
+/*file operations definations*/
+void open_file(char *file_name);
+int parse_line(char *buffer, int line_number, int format);
+void read_file(FILE *);
+int len_chars(FILE *);
+void find_func(char *, char *, int, int);
+
+/*Math operations with nodes definations*/
 void add_nodes(stack_t **, unsigned int);
 void sub_nodes(stack_t **, unsigned int);
 void div_nodes(stack_t **, unsigned int);
 void mul_nodes(stack_t **, unsigned int);
 void mod_nodes(stack_t **, unsigned int);
-
-/*Defination of string operations*/
-void print_char(stack_t **, unsigned int);
-void print_str(stack_t **, unsigned int);
-void rotl(stack_t **, unsigned int);
-
-/*Error Handling files.*/
-void err(int error_code, ...);
-void more_err(int error_code, ...);
-void string_err(int error_code, ...);
-void rotr(stack_t **, unsigned int);
 
 #endif
