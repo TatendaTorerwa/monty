@@ -37,12 +37,12 @@ void error(int errorCode, ...)
 			fprintf(stderr, "Error: malloc failed\n");
 			break;
 		case 5:
-			fprintf(stderr, "L%d: usage: push integer\n", va_arg(ag, int));
+			fprintf(stderr, "L%d: usage: push integer\n", va_arg(args, int));
 			break;
 		default:
 			break;
 	}
-	free_nodes();
+	freeNode();
 	exit(EXIT_FAILURE);
 }
 /**
@@ -82,7 +82,7 @@ void more_error(int errorCode, ...)
 		default:
 			break;
 	}
-	free_nodes();
+	freeNode();
 	exit(EXIT_FAILURE);
 }
 /**
@@ -96,7 +96,7 @@ void string_error(int errorCode, ...)
 	va_list args;
 	int line_number;
 
-	va_start(ag, errorCode);
+	va_start(args, errorCode);
 	line_number = va_arg(args, int);
 	switch (errorCode)
 	{
@@ -109,6 +109,6 @@ void string_error(int errorCode, ...)
 		default:
 			break;
 	}
-	free_nodes();
+	freeNode();
 	exit(EXIT_FAILURE);
 }
